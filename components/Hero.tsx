@@ -131,7 +131,7 @@ export default function Hero() {
             style={{ borderColor: "var(--line-strong)" }}
           >
             <Image
-              src="/Muhammad-Shahab.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Muhammad-Shahab.png`}
               alt="Muhammad Shahab"
               fill
               priority

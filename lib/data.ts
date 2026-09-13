@@ -1,3 +1,9 @@
+// Sign up at https://formspree.io, create a form, and paste its endpoint
+// here (looks like "https://formspree.io/f/xxxxxxxx"). This is a public
+// value — it ends up in the client bundle either way — so it's fine to
+// commit directly rather than wire through an env var / CI secret.
+export const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_ME";
+
 export const nav = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },

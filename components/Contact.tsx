@@ -3,10 +3,46 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Reveal from "./Reveal";
-import { contactLinks } from "@/lib/data";
+import { contactLinks, FORMSPREE_ENDPOINT } from "@/lib/data";
+
+type FormspreeError = { field?: string; message: string };
+
+type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    setStatus("sending");
+    setError("");
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+        return;
+      }
+
+      const json = await res.json().catch(() => null);
+      const message: string =
+        json?.errors?.map((e: FormspreeError) => e.message).join(" ") ||
+        "Something went wrong — please try again.";
+      throw new Error(message);
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  };
 
   return (
     <section
@@ -56,11 +92,18 @@ export default function Contact() {
         as="form"
         className="flex flex-col gap-4 px-[clamp(18px,4.5vw,28px)] py-[clamp(20px,5vw,30px)] rounded-2xl border"
         style={{ borderColor: "var(--line)", background: "var(--bg2)" }}
-        onSubmit={(e: React.FormEvent) => {
-          e.preventDefault();
-          setSent(true);
-        }}
+        onSubmit={handleSubmit}
       >
+        {/* Formspree's honeypot convention — hidden from real visitors */}
+        <input
+          type="text"
+          name="_gotcha"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute -left-[9999px] w-px h-px opacity-0"
+        />
+
         <label className="flex flex-col gap-[7px]">
           <span
             className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] tracking-[0.08em] uppercase"
@@ -70,6 +113,8 @@ export default function Contact() {
           </span>
           <input
             type="text"
+            name="name"
+            required
             placeholder="Your name"
             className="px-3.5 py-3 rounded-[9px] border bg-transparent text-[15px] outline-none min-w-0 transition-colors focus:border-[var(--a1)]"
             style={{ borderColor: "var(--line)" }}
@@ -84,6 +129,8 @@ export default function Contact() {
           </span>
           <input
             type="email"
+            name="email"
+            required
             placeholder="you@company.com"
             className="px-3.5 py-3 rounded-[9px] border bg-transparent text-[15px] outline-none min-w-0 transition-colors focus:border-[var(--a1)]"
             style={{ borderColor: "var(--line)" }}
@@ -98,6 +145,8 @@ export default function Contact() {
           </span>
           <textarea
             rows={4}
+            name="message"
+            required
             placeholder="Role, team, and what you're building."
             className="px-3.5 py-3 rounded-[9px] border bg-transparent text-[15px] resize-y outline-none min-w-0 transition-colors focus:border-[var(--a1)]"
             style={{ borderColor: "var(--line)" }}
@@ -105,12 +154,22 @@ export default function Contact() {
         </label>
         <motion.button
           type="submit"
-          whileHover={{ scale: 1.02, filter: "saturate(1.15)" }}
-          className="px-5 py-3.5 border-none rounded-[9px] text-white font-semibold text-[14.5px] cursor-pointer"
+          disabled={status === "sending"}
+          whileHover={status === "sending" ? {} : { scale: 1.02, filter: "saturate(1.15)" }}
+          className="px-5 py-3.5 border-none rounded-[9px] text-white font-semibold text-[14.5px] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
           style={{ background: "var(--grad)" }}
         >
-          {sent ? "Sent — thanks" : "Send message"}
+          {status === "sending"
+            ? "Sending…"
+            : status === "sent"
+              ? "Sent — thanks"
+              : "Send message"}
         </motion.button>
+        {status === "error" && (
+          <span className="text-[12.5px]" style={{ color: "#f87171" }}>
+            {error}
+          </span>
+        )}
         <span
           className="font-[family-name:var(--font-jetbrains-mono)] text-[11px]"
           style={{ color: "var(--faint)" }}

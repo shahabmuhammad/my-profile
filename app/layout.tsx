@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
       className={`${archivo.variable} ${publicSans.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
