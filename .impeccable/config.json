@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-09-13T16:54:12.761Z",
+        "reason": "faithful port of the user's own Claude Design mockup (Portfolio v3.dc.html) which uses this exact gradient-clip heading treatment"
+      }
+    ]
+  }
+}
