@@ -3,19 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, type HTMLMotionProps } from "framer-motion";
 
-type RevealProps = HTMLMotionProps<"div"> & {
+type Tag = "div" | "form";
+
+type RevealProps<T extends Tag> = Omit<HTMLMotionProps<T>, "children"> & {
   delay?: number;
-  as?: "div" | "form";
+  as?: T;
+  children?: React.ReactNode;
 };
 
 const SAFETY_MS = 1200;
 
-export default function Reveal({
+export default function Reveal<T extends Tag = "div">({
   delay = 0,
-  as = "div",
+  as,
   children,
   ...rest
-}: RevealProps) {
+}: RevealProps<T>) {
   const [visible, setVisible] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -30,7 +33,7 @@ export default function Reveal({
   }, []);
 
   const MotionTag = (as === "form" ? motion.form : motion.div) as React.ComponentType<
-    HTMLMotionProps<"div">
+    Record<string, unknown>
   >;
 
   return (
