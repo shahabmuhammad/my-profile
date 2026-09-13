@@ -8,13 +8,13 @@ export const nav = [
 ];
 
 export const heroStats = [
-  { value: "4+", label: "years shipping", count: false },
-  { value: 4, label: "production systems", count: true },
+  { value: "7+", label: "years shipping", count: false },
+  { value: 24, label: "production systems", count: true },
   { value: 570, label: "agent components shipped", count: true },
 ];
 
 export const aboutFacts = [
-  { label: "Experience", value: "4+ years" },
+  { label: "Experience", value: "7+ years" },
   { label: "Owns", value: "Frontend → backend → CI" },
   { label: "Growing into", value: "RAG & agentic AI systems", accent: true },
   { label: "Timezone", value: "UTC+5 · distributed teams" },

@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+/* ============================================================
+   COLOR SCHEME — the single place to edit to reskin the site.
+   Every component reads colors exclusively through these CSS
+   custom properties (no hex codes are hardcoded in components),
+   so changing a value here updates the entire site everywhere
+   it's used, in both themes.
+
+   --bg / --bg2      page background / card background
+   --fg / --dim / --faint   text: primary / secondary / tertiary
+   --line / --line-strong   hairline borders
+   --chip            subtle tag/pill background
+   --a1 / --a2       primary accent pair (buttons, links, gradient)
+   --cyan            highlight accent (badges, "growing" labels)
+   --f1              flagship project accent (case study 01)
+   --grad / --grad-line   derived gradients, built from a1/a2
+   ============================================================ */
+
 :root,
 :root[data-theme="dark"] {
   --bg: #0b0d12;

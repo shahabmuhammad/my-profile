@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 import Counter from "./Counter";
 import ParticleField from "./ParticleField";
+import Typewriter from "./Typewriter";
 import { heroStats } from "@/lib/data";
 
 export default function Hero() {
@@ -35,17 +37,22 @@ export default function Hero() {
             </h1>
           </Reveal>
 
-          <Reveal
-            delay={0.1}
-            className="m-0 max-w-[32ch] text-[clamp(19px,2.1vw,27px)] leading-[1.35] tracking-[-0.015em]"
-          >
-            I ship full-stack production systems end-to-end — real-time
-            platforms, payment and admin dashboards, and an enterprise{" "}
-            <span style={{ color: "var(--cyan)" }}>
-              AI agent-orchestration platform
-            </span>
-            .
-          </Reveal>
+          <p className="m-0 max-w-[32ch] text-[clamp(19px,2.1vw,27px)] leading-[1.35] tracking-[-0.015em]">
+            <Typewriter
+              segments={[
+                {
+                  text: "I ship full-stack production systems end-to-end — real-time platforms, payment and admin dashboards, and an enterprise ",
+                },
+                {
+                  text: "AI agent-orchestration platform",
+                  style: { color: "var(--cyan)" },
+                },
+                { text: "." },
+              ]}
+              speed={16}
+              startDelay={350}
+            />
+          </p>
 
           <Reveal
             delay={0.15}
@@ -115,25 +122,24 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        <div className="w-[min(100%,240px)] flex flex-col gap-2 justify-self-end">
+        <Reveal
+          delay={0.1}
+          className="w-[min(100%,240px)] mx-auto sm:mx-0 sm:justify-self-end"
+        >
           <div
-            className="aspect-[4/5] border border-dashed rounded-xl flex items-center justify-center text-center font-[family-name:var(--font-jetbrains-mono)] text-[11px]"
-            style={{
-              borderColor: "var(--line-strong)",
-              color: "var(--faint)",
-            }}
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border"
+            style={{ borderColor: "var(--line-strong)" }}
           >
-            portrait
-            <br />
-            placeholder
+            <Image
+              src="/Muhammad-Shahab.png"
+              alt="Muhammad Shahab"
+              fill
+              priority
+              sizes="(max-width: 640px) 70vw, 240px"
+              className="object-cover"
+            />
           </div>
-          <span
-            className="font-[family-name:var(--font-jetbrains-mono)] text-[10.5px]"
-            style={{ color: "var(--faint)" }}
-          >
-            drop a photo here
-          </span>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,6 +1,14 @@
 import Reveal from "./Reveal";
 import { aboutFacts } from "@/lib/data";
 
+function Tech({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="font-semibold" style={{ color: "var(--cyan)" }}>
+      {children}
+    </span>
+  );
+}
+
 export default function About() {
   return (
     <section
@@ -18,15 +26,16 @@ export default function About() {
           className="m-0 text-[clamp(18px,1.7vw,22px)] leading-[1.55] tracking-[-0.01em] max-w-[62ch]"
           style={{ textWrap: "pretty" }}
         >
-          Senior Software Engineer with 4+ years shipping full-stack
+          Senior Software Engineer with 7+ years shipping full-stack
           production systems — real-time platforms, admin and payment
           dashboards, and an enterprise AI agent-orchestration platform —
           architected end-to-end across frontend, backend, and
-          infrastructure. I own systems from React/Angular/Next.js
-          interfaces down through NestJS and .NET services. Currently
-          deepening backend engineering and going hands-on with
-          Retrieval-Augmented Generation and agentic AI systems. Based in
-          Islamabad, Pakistan, working with distributed teams.
+          infrastructure. I own systems from <Tech>React</Tech>/
+          <Tech>Angular</Tech>/<Tech>Next.js</Tech> interfaces down through{" "}
+          <Tech>NestJS</Tech> and <Tech>.NET</Tech> services. Currently
+          deepening backend engineering and going hands-on with{" "}
+          <Tech>Retrieval-Augmented Generation</Tech> and agentic AI systems.
+          Based in Islamabad, Pakistan, working with distributed teams.
         </p>
       </Reveal>
 
