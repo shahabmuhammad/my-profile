@@ -22,6 +22,7 @@ export default function About() {
         >
           01 / About
         </span>
+        <h2 className="sr-only">About</h2>
         <p
           className="m-0 text-[clamp(18px,1.7vw,22px)] leading-[1.55] tracking-[-0.01em] max-w-[62ch]"
           style={{ textWrap: "pretty" }}

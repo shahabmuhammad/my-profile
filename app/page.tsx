@@ -8,6 +8,38 @@ import DeepDive from "@/components/DeepDive";
 import Learning from "@/components/Learning";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/seo";
+import { contactLinks } from "@/lib/data";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Muhammad Shahab",
+  url: SITE_URL,
+  image: `${SITE_URL}/Muhammad-Shahab.png`,
+  jobTitle: "Senior Software Engineer",
+  description:
+    "Senior Software Engineer with 7+ years shipping full-stack production systems — real-time platforms, admin and payment dashboards, and an enterprise AI agent-orchestration platform.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Islamabad",
+    addressCountry: "PK",
+  },
+  sameAs: contactLinks
+    .filter((l) => l.kind === "LinkedIn" || l.kind === "GitHub")
+    .map((l) => l.href),
+  email: contactLinks.find((l) => l.kind === "Email")?.href.replace("mailto:", ""),
+  knowsAbout: [
+    "React",
+    "Angular",
+    "Next.js",
+    "TypeScript",
+    "NestJS",
+    ".NET",
+    "AI Agent Orchestration",
+    "Retrieval-Augmented Generation",
+  ],
+};
 
 export default function Home() {
   return (
@@ -18,6 +50,11 @@ export default function Home() {
         minHeight: "100vh",
       }}
     >
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <Header />
       <main
         id="top"
