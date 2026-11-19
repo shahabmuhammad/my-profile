@@ -17,7 +17,7 @@ export default function About() {
     >
       <Reveal className="flex flex-col gap-[22px] min-w-0">
         <span
-          className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.1em] uppercase"
+          className="font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.1em] uppercase"
           style={{ color: "var(--a2)" }}
         >
           01 / About
@@ -55,7 +55,7 @@ export default function About() {
               }}
             >
               <dt
-                className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.06em] uppercase"
+                className="font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.06em] uppercase"
                 style={{ color: "var(--faint)" }}
               >
                 {fact.label}

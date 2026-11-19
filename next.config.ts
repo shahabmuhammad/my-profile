@@ -4,7 +4,10 @@ import type { NextConfig } from "next";
 // which serves from https://shahabmuhammad.github.io/my-profile/ — everything
 // below exists to make a plain static export work correctly under that subpath.
 const REPO_NAME = "my-profile";
-const basePath = `/${REPO_NAME}`;
+// Only prefix in production builds (`next build`, which GitHub Actions runs),
+// so `next dev` serves the site at http://localhost:3000/ as usual.
+const basePath =
+  process.env.NODE_ENV === "production" ? `/${REPO_NAME}` : "";
 
 const nextConfig: NextConfig = {
   output: "export",

@@ -56,12 +56,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
       <Header />
-      <main
-        id="top"
-        className="max-w-[1160px] mx-auto px-[clamp(18px,4vw,28px)]"
-      >
-        <Hero />
-        <Divider />
+      <Hero />
+      <main className="max-w-[1160px] mx-auto px-[clamp(18px,4vw,28px)]">
         <About />
         <Divider />
         <Skills />

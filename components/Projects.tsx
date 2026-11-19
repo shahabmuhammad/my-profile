@@ -11,17 +11,17 @@ export default function Projects() {
       <Reveal className="flex flex-wrap items-baseline justify-between gap-[18px] mb-11">
         <div className="flex flex-col gap-4">
           <span
-            className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.1em] uppercase"
+            className="font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.1em] uppercase"
             style={{ color: "var(--a2)" }}
           >
             03 / Featured projects
           </span>
-          <h2 className="m-0 font-[family-name:var(--font-archivo)] font-bold text-[clamp(30px,3.6vw,46px)] leading-none tracking-[-0.035em]">
+          <h2 className="m-0 font-[family-name:var(--font-display)] font-normal text-[clamp(30px,3.6vw,46px)] leading-[1.04] tracking-[-0.02em]">
             Systems I built full-stack
           </h2>
         </div>
         <span
-          className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px]"
+          className="font-[family-name:var(--font-mono)] text-[11.5px]"
           style={{ color: "var(--faint)" }}
         >
           frontend → backend → CI
@@ -32,7 +32,7 @@ export default function Projects() {
         {projects.map((project) => {
           const flagship = !!project.flagship;
           return (
-            <Reveal key={project.title}>
+            <Reveal key={project.slug} id={project.slug}>
               <motion.article
                 whileHover={{ y: -5, scale: 1.006 }}
                 transition={{ type: "spring", stiffness: 340, damping: 26 }}
@@ -60,7 +60,7 @@ export default function Projects() {
                 <div className="flex items-start justify-between gap-3.5">
                   <div className="flex flex-col gap-1.5 min-w-0">
                     <span
-                      className="flex flex-wrap items-center gap-2 font-[family-name:var(--font-jetbrains-mono)] text-[11px] tracking-[0.08em] uppercase"
+                      className="flex flex-wrap items-center gap-2 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.08em] uppercase"
                       style={{ color: "var(--faint)" }}
                     >
                       {project.caseStudy}
@@ -74,7 +74,7 @@ export default function Projects() {
                       )}
                     </span>
                     <h3
-                      className="m-0 font-[family-name:var(--font-archivo)] font-bold text-[23px] tracking-[-0.025em]"
+                      className="m-0 font-medium text-[21px] tracking-[-0.015em]"
                       style={{ textWrap: "balance" }}
                     >
                       {project.title}
@@ -89,11 +89,11 @@ export default function Projects() {
                   >
                     <Counter
                       value={project.metric.value}
-                      className="font-[family-name:var(--font-jetbrains-mono)] text-[19px] leading-[1.1] tracking-[-0.02em]"
+                      className="font-[family-name:var(--font-mono)] text-[19px] leading-[1.1] tracking-[-0.02em]"
                       style={{ color: flagship ? "var(--f1)" : "var(--a-num)" }}
                     />
                     <span
-                      className="font-[family-name:var(--font-jetbrains-mono)] text-[9.5px] tracking-[0.08em] uppercase"
+                      className="font-[family-name:var(--font-mono)] text-[9.5px] tracking-[0.08em] uppercase"
                       style={{ color: "var(--faint)" }}
                     >
                       {project.metric.label}
@@ -104,7 +104,7 @@ export default function Projects() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-[5px]">
                     <span
-                      className="font-[family-name:var(--font-jetbrains-mono)] text-[10.5px] tracking-[0.09em] uppercase"
+                      className="font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.09em] uppercase"
                       style={{ color: "var(--faint)" }}
                     >
                       What it does
@@ -120,7 +120,7 @@ export default function Projects() {
                   {project.stack && (
                     <div className="flex flex-col gap-[7px]">
                       <span
-                        className="font-[family-name:var(--font-jetbrains-mono)] text-[10.5px] tracking-[0.09em] uppercase"
+                        className="font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.09em] uppercase"
                         style={{ color: "var(--faint)" }}
                       >
                         Stack
@@ -137,7 +137,7 @@ export default function Projects() {
                   {project.ownership && (
                     <div className="flex flex-col gap-[7px]">
                       <span
-                        className="font-[family-name:var(--font-jetbrains-mono)] text-[10.5px] tracking-[0.09em] uppercase"
+                        className="font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.09em] uppercase"
                         style={{ color: "var(--faint)" }}
                       >
                         Ownership
@@ -145,7 +145,7 @@ export default function Projects() {
                       <div className="flex flex-col gap-1.5">
                         <p className="m-0 text-[14.5px] leading-[1.5]">
                           <span
-                            className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] tracking-[0.06em] uppercase mr-2"
+                            className="font-[family-name:var(--font-mono)] text-[11px] tracking-[0.06em] uppercase mr-2"
                             style={{ color: "var(--cyan)" }}
                           >
                             FE
@@ -154,7 +154,7 @@ export default function Projects() {
                         </p>
                         <p className="m-0 text-[14.5px] leading-[1.5]">
                           <span
-                            className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] tracking-[0.06em] uppercase mr-2"
+                            className="font-[family-name:var(--font-mono)] text-[11px] tracking-[0.06em] uppercase mr-2"
                             style={{ color: "var(--cyan)" }}
                           >
                             BE
@@ -167,7 +167,7 @@ export default function Projects() {
 
                   <div className="flex flex-col gap-[9px]">
                     <span
-                      className="font-[family-name:var(--font-jetbrains-mono)] text-[10.5px] tracking-[0.09em] uppercase"
+                      className="font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.09em] uppercase"
                       style={{ color: "var(--faint)" }}
                     >
                       Highlights
@@ -180,7 +180,7 @@ export default function Projects() {
                           style={{ textWrap: "pretty" }}
                         >
                           <span
-                            className="font-[family-name:var(--font-jetbrains-mono)] text-[12px] leading-[1.8]"
+                            className="font-[family-name:var(--font-mono)] text-[12px] leading-[1.8]"
                             style={{ color: flagship ? "var(--f1)" : "var(--a2)" }}
                           >
                             →
@@ -194,7 +194,7 @@ export default function Projects() {
                   {project.link && (
                     <a
                       href={project.link.href}
-                      className="w-fit font-[family-name:var(--font-jetbrains-mono)] text-[12px] tracking-[0.04em] border-b pb-0.5"
+                      className="w-fit font-[family-name:var(--font-mono)] text-[12px] tracking-[0.04em] border-b pb-0.5"
                       style={{ color: "var(--f1)", borderColor: "var(--f-line)" }}
                     >
                       {project.link.label}

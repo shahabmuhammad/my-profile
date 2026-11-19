@@ -6,17 +6,8 @@ export const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_ME";
 
 export const nav = [
   { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#deep-dive", label: "Deep-dive" },
+  { href: "#skills", label: "Stack" },
   { href: "#learning", label: "Learning" },
-  { href: "#contact", label: "Contact" },
-];
-
-export const heroStats = [
-  { value: "7+", label: "years shipping", count: false },
-  { value: 24, label: "production systems", count: true },
-  { value: 570, label: "agent components shipped", count: true },
 ];
 
 export const aboutFacts = [
@@ -114,6 +105,9 @@ export const skillGroups: SkillGroup[] = [
 ];
 
 export type Project = {
+  slug: string;
+  /** One-line summary used in the header "Work" dropdown. */
+  short: string;
   caseStudy: string;
   title: string;
   flagship?: boolean;
@@ -127,6 +121,8 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "agent-orchestrator",
+    short: "Drag-and-drop canvas for building production LLM agents.",
     caseStudy: "Case study 01",
     title: "AI Agent Orchestrator Platform",
     flagship: true,
@@ -142,6 +138,8 @@ export const projects: Project[] = [
     link: { href: "#deep-dive", label: "Read the engineering deep-dive ↓" },
   },
   {
+    slug: "signage-platform",
+    short: "Live prayer-time screens for mosques over SignalR.",
     caseStudy: "Case study 02",
     title: "Real-Time Prayer & Signage Platform",
     metric: { value: 620, label: "commits" },
@@ -157,6 +155,8 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "payments-panel",
+    short: "Events, Stripe payments and mobile-app handoff.",
     caseStudy: "Case study 03",
     title: "Admin & Payments Control Panel",
     metric: { value: 419, label: "commits" },
@@ -172,6 +172,8 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "b2b-marketplace",
+    short: "Listings, AI-assisted search and approval workflows.",
     caseStudy: "Case study 04",
     title: "Multi-Tenant B2B Marketplace",
     metric: { value: 192, label: "commits" },

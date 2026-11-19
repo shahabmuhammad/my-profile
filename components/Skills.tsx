@@ -29,17 +29,17 @@ export default function Skills() {
       <Reveal className="flex flex-wrap items-baseline justify-between gap-5 mb-11">
         <div className="flex flex-col gap-4">
           <span
-            className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.1em] uppercase"
+            className="font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.1em] uppercase"
             style={{ color: "var(--a2)" }}
           >
             02 / Skills
           </span>
-          <h2 className="m-0 font-[family-name:var(--font-archivo)] font-bold text-[clamp(30px,3.6vw,46px)] leading-none tracking-[-0.035em]">
+          <h2 className="m-0 font-[family-name:var(--font-display)] font-normal text-[clamp(30px,3.6vw,46px)] leading-[1.04] tracking-[-0.02em]">
             What I work in
           </h2>
         </div>
         <div
-          className="flex flex-wrap gap-x-[22px] gap-y-3 font-[family-name:var(--font-jetbrains-mono)] text-[11.5px]"
+          className="flex flex-wrap gap-x-[22px] gap-y-3 font-[family-name:var(--font-mono)] text-[11.5px]"
           style={{ color: "var(--dim)" }}
         >
           <span className="flex items-center gap-2">
@@ -72,7 +72,7 @@ export default function Skills() {
             }}
           >
             <div className="flex items-baseline justify-between gap-3">
-              <h3 className="m-0 font-[family-name:var(--font-archivo)] font-semibold text-[16px] tracking-[-0.01em]">
+              <h3 className="m-0 font-medium text-[16px] tracking-[-0.01em]">
                 {group.title}
                 {group.highlight && (
                   <span
@@ -85,7 +85,7 @@ export default function Skills() {
                 )}
               </h3>
               <span
-                className="font-[family-name:var(--font-jetbrains-mono)] text-[11px]"
+                className="font-[family-name:var(--font-mono)] text-[11px]"
                 style={{ color: "var(--faint)" }}
               >
                 {group.index}

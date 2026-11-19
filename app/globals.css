@@ -137,9 +137,6 @@ button {
   animation: blip 2.6s ease-in-out infinite;
 }
 
-.gradient-text {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+[id] {
+  scroll-margin-top: 72px;
 }

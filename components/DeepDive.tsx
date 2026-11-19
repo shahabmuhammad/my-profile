@@ -26,12 +26,12 @@ export default function DeepDive() {
       <Reveal className="flex flex-wrap items-end justify-between gap-5 mb-[38px]">
         <div className="flex flex-col gap-4 max-w-[56ch]">
           <span
-            className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.1em] uppercase"
+            className="font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.1em] uppercase"
             style={{ color: "var(--a2)" }}
           >
             04 / Technical deep-dive
           </span>
-          <h2 className="m-0 font-[family-name:var(--font-archivo)] font-bold text-[clamp(30px,3.6vw,46px)] leading-none tracking-[-0.035em]">
+          <h2 className="m-0 font-[family-name:var(--font-display)] font-normal text-[clamp(30px,3.6vw,46px)] leading-[1.04] tracking-[-0.02em]">
             Inside the Agent Orchestrator
           </h2>
           <p
@@ -44,7 +44,7 @@ export default function DeepDive() {
         </div>
         <button
           onClick={toggleAll}
-          className="px-[15px] py-2.5 rounded-[9px] border font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.04em] cursor-pointer bg-transparent transition-colors"
+          className="px-[15px] py-2.5 rounded-[9px] border font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.04em] cursor-pointer bg-transparent transition-colors"
           style={{ borderColor: "var(--line)", color: "var(--dim)" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = "var(--a1)";
@@ -81,19 +81,19 @@ export default function DeepDive() {
                 className="w-full grid items-start gap-[clamp(9px,2.5vw,14px)] px-[clamp(15px,4vw,22px)] py-[clamp(15px,4vw,19px)] bg-transparent border-none text-left cursor-pointer [grid-template-columns:clamp(22px,6vw,34px)_minmax(0,1fr)_22px]"
               >
                 <span
-                  className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px]"
+                  className="font-[family-name:var(--font-mono)] text-[11.5px]"
                   style={{ color: "var(--a2)" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
-                  className="font-[family-name:var(--font-archivo)] font-semibold text-[17px] tracking-[-0.015em]"
+                  className="font-medium text-[17px] tracking-[-0.015em]"
                   style={{ textWrap: "pretty" }}
                 >
                   {item.title}
                 </span>
                 <span
-                  className="font-[family-name:var(--font-jetbrains-mono)] text-[16px] text-right"
+                  className="font-[family-name:var(--font-mono)] text-[16px] text-right"
                   style={{ color: "var(--dim)" }}
                 >
                   {isOpen ? "−" : "+"}
@@ -123,7 +123,7 @@ export default function DeepDive() {
                           {item.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] px-2 py-1 rounded-[5px]"
+                              className="font-[family-name:var(--font-mono)] text-[11px] px-2 py-1 rounded-[5px]"
                               style={{
                                 background: "var(--chip)",
                                 color: "var(--dim)",
@@ -149,13 +149,13 @@ export default function DeepDive() {
                               style={{ background: "var(--bg)" }}
                             >
                               <span
-                                className="font-[family-name:var(--font-jetbrains-mono)] text-[16px]"
+                                className="font-[family-name:var(--font-mono)] text-[16px]"
                                 style={{ color: "var(--a-num)" }}
                               >
                                 {b.value}
                               </span>
                               <span
-                                className="font-[family-name:var(--font-jetbrains-mono)] text-[9.5px] tracking-[0.07em] uppercase"
+                                className="font-[family-name:var(--font-mono)] text-[9.5px] tracking-[0.07em] uppercase"
                                 style={{ color: "var(--faint)" }}
                               >
                                 {b.label}

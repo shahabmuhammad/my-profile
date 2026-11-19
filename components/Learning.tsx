@@ -11,20 +11,20 @@ export default function Learning() {
         <div className="flex flex-wrap items-baseline justify-between gap-4 mb-[30px]">
           <div className="flex flex-col gap-3.5">
             <span
-              className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.1em] uppercase"
+              className="font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.1em] uppercase"
               style={{ color: "var(--cyan)" }}
             >
               05 / Currently learning
             </span>
             <h2
-              className="m-0 font-[family-name:var(--font-archivo)] font-bold text-[clamp(26px,3vw,38px)] leading-[1.05] tracking-[-0.03em] max-w-[34ch]"
+              className="m-0 font-[family-name:var(--font-display)] font-normal text-[clamp(26px,3vw,38px)] leading-[1.04] tracking-[-0.02em] max-w-[34ch]"
               style={{ textWrap: "balance" }}
             >
               Going deeper on the AI and backend side
             </h2>
           </div>
           <span
-            className="flex items-center gap-2 font-[family-name:var(--font-jetbrains-mono)] text-[11.5px]"
+            className="flex items-center gap-2 font-[family-name:var(--font-mono)] text-[11.5px]"
             style={{ color: "var(--dim)" }}
           >
             <span
@@ -42,7 +42,7 @@ export default function Learning() {
               className="flex flex-col gap-2 pt-4 border-t-2"
               style={{ borderColor: "var(--cyan)" }}
             >
-              <h3 className="m-0 font-[family-name:var(--font-archivo)] font-semibold text-[17px] tracking-[-0.015em]">
+              <h3 className="m-0 font-medium text-[17px] tracking-[-0.015em]">
                 {item.title}
               </h3>
               <p

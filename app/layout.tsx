@@ -1,26 +1,31 @@
 import type { Metadata } from "next";
-import { Archivo, Public_Sans, JetBrains_Mono } from "next/font/google";
+import { Newsreader, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./hero.css";
 import { ThemeProvider } from "@/lib/theme";
 import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/seo";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+// Display: Newsreader at regular weight (editorial serif, used for h1/h2).
+// Body + UI: Geist, with Geist Mono for small technical labels.
+const newsreader = Newsreader({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400"],
+  display: "swap",
 });
 
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
+const geist = Geist({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+  display: "swap",
 });
 
 const ogImage = `${SITE_URL}/og-image.png`;
@@ -94,13 +99,20 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
-      className={`${archivo.variable} ${publicSans.variable} ${jetbrainsMono.variable}`}
+      className={`${newsreader.variable} ${geist.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <body
-        className="min-h-screen font-[family-name:var(--font-public-sans)] text-[16px] leading-[1.6]"
+        className="min-h-screen font-[family-name:var(--font-body)] text-[16px] leading-[1.6]"
         suppressHydrationWarning
       >
+        {/* Gates the one-time hero reveal on JS so no-JS visitors see the
+            finished page. Runs before paint to avoid a flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

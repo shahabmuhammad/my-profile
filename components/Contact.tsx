@@ -51,13 +51,13 @@ export default function Contact() {
     >
       <Reveal className="flex flex-col gap-7 min-w-0">
         <span
-          className="font-[family-name:var(--font-jetbrains-mono)] text-[11.5px] tracking-[0.1em] uppercase"
+          className="font-[family-name:var(--font-mono)] text-[11.5px] tracking-[0.1em] uppercase"
           style={{ color: "var(--a2)" }}
         >
           06 / Contact
         </span>
         <h2
-          className="m-0 font-[family-name:var(--font-archivo)] font-bold text-[clamp(32px,4.4vw,58px)] leading-none tracking-[-0.04em]"
+          className="m-0 font-[family-name:var(--font-display)] font-normal text-[clamp(32px,4.4vw,58px)] leading-[1.04] tracking-[-0.02em]"
           style={{ textWrap: "balance" }}
         >
           Let&apos;s talk about the role.
@@ -78,7 +78,7 @@ export default function Contact() {
             >
               <span className="min-w-0 break-words">{link.label}</span>
               <span
-                className="font-[family-name:var(--font-jetbrains-mono)] text-[12px]"
+                className="font-[family-name:var(--font-mono)] text-[12px]"
                 style={{ color: "var(--faint)" }}
               >
                 {link.kind}
@@ -106,7 +106,7 @@ export default function Contact() {
 
         <label className="flex flex-col gap-[7px]">
           <span
-            className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] tracking-[0.08em] uppercase"
+            className="font-[family-name:var(--font-mono)] text-[11px] tracking-[0.08em] uppercase"
             style={{ color: "var(--faint)" }}
           >
             Name
@@ -122,7 +122,7 @@ export default function Contact() {
         </label>
         <label className="flex flex-col gap-[7px]">
           <span
-            className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] tracking-[0.08em] uppercase"
+            className="font-[family-name:var(--font-mono)] text-[11px] tracking-[0.08em] uppercase"
             style={{ color: "var(--faint)" }}
           >
             Email
@@ -138,7 +138,7 @@ export default function Contact() {
         </label>
         <label className="flex flex-col gap-[7px]">
           <span
-            className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] tracking-[0.08em] uppercase"
+            className="font-[family-name:var(--font-mono)] text-[11px] tracking-[0.08em] uppercase"
             style={{ color: "var(--faint)" }}
           >
             Message
@@ -171,7 +171,7 @@ export default function Contact() {
           </span>
         )}
         <span
-          className="font-[family-name:var(--font-jetbrains-mono)] text-[11px]"
+          className="font-[family-name:var(--font-mono)] text-[11px]"
           style={{ color: "var(--faint)" }}
         >
           Replies within two working days.
